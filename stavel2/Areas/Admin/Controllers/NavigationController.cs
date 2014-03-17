@@ -38,14 +38,14 @@ namespace stavel2.Areas.Admin.Controllers
             return Index();
         }
 
-        public ActionResult Edit(int Id)
+        public ActionResult EditElement(int Id)
         {
             var element=ctx.NavigationElements.SingleOrDefault(n => n.Id == Id);
             return View(element);
         }
 
         [HttpPost]
-        public ActionResult Edit(NavigationElement material)
+        public ActionResult EditElement(NavigationElement material)
         {
             var element = ctx.NavigationElements.SingleOrDefault(n => n.Id == material.Id);
             element.Text = material.Text;

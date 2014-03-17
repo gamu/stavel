@@ -282,8 +282,8 @@
     <Content Include="Areas\Admin\Views\EditArticle\List.cshtml" />
     <Content Include="Areas\Admin\Views\Navigation\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Navigation\CreateElement.cshtml" />
-    <Content Include="Areas\Admin\Views\Navigation\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Navigation\EditElement.cshtml" />
     <None Include="Content\jHtml\scripts\jHtmlArea-0.7.5-vsdoc.js" />
     <Content Include="Content\jHtml\scripts\jHtmlArea-0.7.5.js" />
     <None Include="Content\jHtml\scripts\jHtmlArea-0.7.5.min-vsdoc.js" />

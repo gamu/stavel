@@ -41,7 +41,7 @@
                 $("#createPartial").dialog();
             };
             self.editElement = function(element) {
-                var url = "@Url.Action("Edit","Navigation")" + "/" + element.Id;
+                var url = "@Url.Action("EditElement", "Navigation")" + "/" + element.Id;
                 window.location.href = url;
             };
             self.deleteElement = function(element) {

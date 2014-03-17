@@ -2,9 +2,9 @@
 @model  Material
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = Model.Title;
-    ViewBag.Description = Model.Description;
-    ViewBag.Keywords = Model.Keywords;    
+    ViewBag.Title = Model.Title ?? string.Empty;
+    ViewBag.Description = Model.Description ?? string.Empty;
+    ViewBag.Keywords = Model.Keywords ?? string.Empty;    
 }
 <header>
     <h2>@Model.Title</h2>

@@ -22,7 +22,7 @@ namespace stavel2.App_Start
                 requestContext.RouteData.Values["action"] = "GetArticle";
                 return new HomeController();
             }
-            return (IController)Activator.CreateInstance(controller);
+            return (Controller)Activator.CreateInstance(controller);
         }
 
         public SessionStateBehavior GetControllerSessionBehavior(RequestContext requestContext, string controllerName)

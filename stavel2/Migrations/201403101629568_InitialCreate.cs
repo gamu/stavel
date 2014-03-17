@@ -16,7 +16,7 @@ namespace stavel2.Migrations
                         Content = c.String(),
                         SeoUrl = c.String(),
                         Keywords = c.String(),
-                        Discription = c.String(),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             

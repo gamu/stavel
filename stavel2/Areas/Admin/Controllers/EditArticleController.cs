@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
@@ -23,15 +24,16 @@ namespace stavel2.Areas.Admin.Controllers
             return View(article);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(Material material)
         {
-            var materialEntity = ctx.Materials.Single(n => n.Id == material.Id);
+            /*var materialEntity = ctx.Materials.Single(n => n.Id == material.Id);
             materialEntity.Content = material.Content;
             materialEntity.Description = material.Description;
             materialEntity.Keywords = material.Keywords;
             materialEntity.SeoUrl = material.SeoUrl;
-            materialEntity.Title = material.Title;
+            materialEntity.Title = material.Title;*/
+            ctx.Materials.AddOrUpdate(material);
             ctx.SaveChanges();
             return Edit(material.Id);
         }
@@ -45,7 +47,7 @@ namespace stavel2.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Create(Material material)
         {
-            ctx.Materials.Add(material);
+            ctx.Materials.AddOrUpdate(material);
             ctx.SaveChanges();
             return Create();
         }

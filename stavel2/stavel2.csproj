@@ -129,6 +129,7 @@
     <Compile Include="App_Start\StavelControllerFactory.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\EditArticleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavigationController.cs" />
     <Compile Include="Areas\Admin\Models\MaterialsListViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -282,6 +283,7 @@
     <Content Include="Areas\Admin\Views\Navigation\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Navigation\CreateElement.cshtml" />
     <Content Include="Areas\Admin\Views\Navigation\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Content\jHtml\scripts\jHtmlArea-0.7.5-vsdoc.js" />
     <Content Include="Content\jHtml\scripts\jHtmlArea-0.7.5.js" />
     <None Include="Content\jHtml\scripts\jHtmlArea-0.7.5.min-vsdoc.js" />

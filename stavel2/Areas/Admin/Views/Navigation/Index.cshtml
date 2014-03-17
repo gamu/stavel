@@ -5,8 +5,36 @@
 <h2>Список элементов навигации</h2>
 
 <script type="text/javascript"> 
-    $(document).ready(function () {
-        var elementsData = [{Text:""}];
+    
+    function spinnerStart() {
+        var opts = {
+            lines: 13, // The number of lines to draw
+            length: 20, // The length of each line
+            width: 10, // The line thickness
+            radius: 30, // The radius of the inner circle
+            corners: 1, // Corner roundness (0..1)
+            rotate: 0, // The rotation offset
+            direction: 1, // 1: clockwise, -1: counterclockwise
+            color: '#000', // #rgb or #rrggbb or array of colors
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false, // Whether to use hardware acceleration
+            className: 'spinner', // The CSS class to assign to the spinner
+            zIndex: 2e9, // The z-index (defaults to 2000000000)
+            top: 'auto', // Top position relative to parent in px
+            left: 'auto' // Left position relative to parent in px
+        };
+        var target = document.getElementById('spinner');
+        var spinner = new Spinner(opts).spin(target);
+        return spinner;
+    }
+
+    $(document).ready(function() {
+
+        var elementsData = [{ Text: "" }];
+
+        var spinner = spinnerStart();
 
         var NaviElementsViewModel = function() {
             var self = this;
@@ -23,34 +51,37 @@
             };
         };
 
-        $.getJSON("@Url.Action("GetElements")", elementsData, function (data) {
-            debugger;
+        $.getJSON("@Url.Action("GetElements")", elementsData, function(data) {
             elementsData = data;
             ko.applyBindings(new NaviElementsViewModel());
+            spinner.stop();
         });
-    })
+    });
 </script>
 
-<button type="button" data-bind="click:createElement" class="btn btn-success">+ Создать элемент</button>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <td>ИД</td>
-            <td>Текст</td>
-            <td>Url</td>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach:elements">
-        <tr>
-            <td data-bind="text:Id"></td>
-            <td data-bind="text:Text"></td>
-            <td data-bind="text:Url"></td>
-            <td><button type="button" data-bind="click:$parent.editElement" class="btn btn-success">Редактировать</button></td>
-            <td><button type="button" data-bind="click:$parent.deleteElement" class="btn btn-danger">Удалить</button></td>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div id="spinner"></div>
+    <button type="button" data-bind="click:createElement" class="btn btn-success">+ Создать элемент</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ИД</td>
+                <td>Текст</td>
+                <td>Url</td>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:elements">
+            <tr>
+                <td data-bind="text:Id"></td>
+                <td data-bind="text:Text"></td>
+                <td data-bind="text:Url"></td>
+                <td><button type="button" data-bind="click:$parent.editElement" class="btn btn-success">Редактировать</button></td>
+                <td><button type="button" data-bind="click:$parent.deleteElement" class="btn btn-danger">Удалить</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-<div id="createPartial" style="display: none">
-    @Html.Partial("CreateElement")
+    <div id="createPartial" style="display: none">
+        @Html.Partial("CreateElement")
+    </div>
 </div>

@@ -1,0 +1,39 @@
+﻿@using stavel2.Models
+@model stavel2.Models.NavigationElement
+
+<nav style="z-index: 10000;">
+    <ul class="sf-menu">
+        @{
+            var ctx = new StavelDataContext();
+            var elements = ctx.NavigationElements;
+            foreach (var element in elements)
+            {
+                <li><strong></strong><a href="@Url.Content("~"+element.Url)">@element.Text</a></li>
+            }
+        }
+    </ul>
+    <div class="clear"></div>
+</nav>
+
+<!--<nav style="z-index: 10000;">
+    <ul class="sf-menu">
+        <li class="current"><strong></strong><a href=@Url.Action("Index", "Home")>О Нас</a></li>
+        <li class="sub-menu">
+            <strong></strong><a href="">Услуги</a>
+            <ul>
+                <li class="sub-menu">
+                    <a href="#">Другие услуги</a>
+                    <ul>
+                        <li><strong></strong><a href="">Cтроительные" работы</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Проектные работы</a></li>
+            </ul>
+        </li>
+        <li><strong></strong><a href="">Проекты</a></li>
+        <li><strong></strong><a href="">Лицензии</a></li>
+        <li><strong></strong><a href="">Вакансии</a></li>
+        <li><strong></strong><a href="">Контакты</a></li>
+    </ul>
+    <div class="clear"></div>
+</nav>-->

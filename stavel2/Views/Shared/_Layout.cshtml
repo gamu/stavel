@@ -1,0 +1,202 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="Description" content="@ViewBag.Description" />
+    <meta name="Keywords" content="@ViewBag.Keywords" />
+    <link rel="icon" href=@Url.Content("~/Content/images/favicon.ico") type="image/x-icon" />
+    <link rel="shortcut icon" href=@Url.Content("~/Content/images/favicon.ico") type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" media="screen" href=@Url.Content("~/Content/style.css") />
+    @Scripts.Render("~/Script/scripts")
+    @Styles.Render("~/Styles/style")
+    <script type="text/javascript">
+        $(window).load(function () {
+            jQuery('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: true,
+                slideshowSpeed: 7000,
+                animationDuration: 600,
+                prevText: "",
+                nextText: "",
+                controlNav: true
+            });
+        });
+    </script>
+    <!--[if lte IE 8]
+         <div style=' clear: both; text-align:center; position: relative;'>
+           <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+             <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+          </a>
+        </div>
+    <![endif]-->
+    <script type="text/javascript" src=@Url.Content("~/Content/Scripts/js/html5.js")></script>
+    <link rel="stylesheet" type="text/css" media="screen" href=@Url.Content("~/Content/ie.css") />
+</head>
+<body>
+    <div class="main">
+        <div class="container_12" style="margin-top: -65px;">
+            <header>
+                <div class="wrapper">
+                    <h1>
+                        <a href="Главная">
+                            <img src=@Url.Content("~/Content/images/logo.png") alt="Логотип Стройавангард">
+                        </a><span></span>
+                    </h1>
+                    <div class="social">
+                        <strong style="font-size: xx-large; color: #de9b0f;">8 (495) 509-35-23</strong><br />
+                        <a href="mailto://stroyavangard@mail.ru"><span style="font-size: large; color: #de9b0f; margin-top: 25px; margin-left: 20px;">stroyavangard@mail.ru</span></a>
+                    </div>
+                </div>
+                @Html.Partial("TopNavigationPartial")
+            </header>
+            <div class="main-slider">
+                <div class="flexslider clearfix">
+                    <ul class="slides">
+                        <li>
+                            <img alt="" src=@Url.Content("~/Content/images/slide.jpg")>
+                            <div class="flex-caption">
+                                <div class="inner" style="margin-top: -25px;">
+                                    <strong>Электромонтаж</strong>
+                                    <span>Промышленных, торговых и жилых помещений</span>
+                                    <span style="font-size: small; font-style: italic"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <img alt="" src=@Url.Content("~/Content/images/slide-1.jpg")>
+                            <div class="flex-caption">
+                                <div class="inner">
+                                    <strong>Проектирование</strong>
+                                    <span>и предпроектные работы</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <img alt="" src=@Url.Content("~/Content/images/slide-2.jpg")>
+                            <div class="flex-caption">
+                                <div class="inner" style="margin-top: -75px;">
+                                    <strong style="font-size: xx-large;">Почему мы?</strong>
+                                    <ul>
+                                        <li>Обслуживание в Москве и Области</li>
+                                        <li>Постоянный контроль качества</li>
+                                        <li>Высококлассные специалисты</li>
+                                        <li>Доступные цены</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <section id="content" style="margin-top: -55px;">
+                <!--///wrapper-->
+                <div class="wrapper-after">
+                    <div class="grid_8">
+                        <div class="indent">
+                            @RenderBody()
+                        </div>
+                    </div>
+                    @if (!IsSectionDefined("SubstString"))
+                    {
+                        <div class="grid_4">
+                            @Html.Partial("LinksForArticlePartial")
+                        </div>
+                    }
+                    else
+                    { 
+                        @RenderSection("SubstString");
+                    }
+                </div>
+                <!--///wrapper-->
+            </section>
+        </div>
+        <!--==============================footer=================================-->
+        <aside>
+            <div class="container_12">
+                <div class="wrapper">
+                    <div class="grid_2">
+                        <div class="indent">
+                            <ul class="list-1">
+                                <li><a href="#"><strong>Стройавангард</strong> &copy; 2013</a></li>
+                                <li><a href="#">+7 495-509-35-23</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid_2">
+                        <div class="indent">
+                            <h4 class="p2">Компания</h4>
+                            <ul class="list-1">
+                                <li><a href="Главная">О Нас</a></li>
+                                <li><a href="Услуги">Услуги</a></li>
+                                <li><a href="Контакты">Контакты</a></li>
+                                <li><a href="Лицензии">Лицензии</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid_4">
+                        <div class="indent">
+                            <div class="telphone">
+                                <img src=@Url.Content("~/Content/images/tel.png") alt="" class="fleft">
+                                <div class="extra-wrap">
+                                    <span>КОНТАКТНЫЙ ТЕЛЕФОН</span>
+                                    <span>+7 495-509-35-23</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--///wrapper-->
+            </div>
+        </aside>
+        <footer>
+            <div class="container_12">
+                <div class="grid_12">
+                    <div class="indent">
+                        <strong>Стройавангард</strong> &copy; 2014
+                        <br>
+                        <!-- {%FOOTER_LINK} -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter21248803 = new Ya.Metrika({
+                            id: 21248803,
+                            webvisor: true,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true
+                        });
+                    } catch (e) { }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () { n.parentNode.insertBefore(s, n); };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else { f(); }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript>
+            <div>
+                <img src="//mc.yandex.ru/watch/21248803" style="position: absolute; left: -9999px;" alt="" />
+            </div>
+        </noscript>
+        <!-- /Yandex.Metrika counter -->
+    </div>
+</body>
+</html>
+

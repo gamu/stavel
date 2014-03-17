@@ -1,0 +1,56 @@
+﻿@model stavel2.Models.Material
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        //$("#dialog").visible = false;
+        var jHtmlArea = $("#Content").htmlarea();
+        $("#Title").removeAttr('class');
+        $("#Title").addClass('form-control');
+        $("#Content").removeAttr('class');
+        $("#Content").addClass('form-control');
+        $("#SeoUrl").removeAttr('class');
+        $("#SeoUrl").addClass('form-control');
+        $(".image").unbind("click");
+        $(".image").bind("click", function () {
+            $("#dialog").dialog({
+                width: 380
+            });
+            jHtmlArea[0].jhtmlareaObject.image("sdgsdgdfgdfgdfgdfgdf");
+        });
+        $(".image").removeAttr('href');
+    });
+</script>
+<h1>Редактирование контента</h1>
+<div class="container">
+    <form role="form" method="POST">
+        <div class="form-group">
+            @Html.LabelFor(n => n.Title)
+            @Html.EditorFor(n => n.Title)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(n => n.SeoUrl)
+            @Html.EditorFor(n => n.SeoUrl, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(n => n.Keywords)
+                    @Html.TextAreaFor(n => n.Keywords, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(n => n.Description)
+                    @Html.TextAreaFor(n => n.Description, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.TextAreaFor(n => n.Content, new { style = "width: 100%;", rows = 20 })
+        </div>
+        <button type="submit" class="btn btn-default">Сохранить</button>
+    </form>
+    <div id="dialog" style="display: none">
+        @Html.Partial("SaveImagePartial")
+    </div>
+</div>

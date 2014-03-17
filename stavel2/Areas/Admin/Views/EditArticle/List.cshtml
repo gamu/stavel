@@ -1,0 +1,57 @@
+﻿@using System.Web.Script.Serialization
+@model List<stavel2.Areas.Admin.Models.MaterialsListViewModel>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    
+    function CreateNewArticle() {
+        var url = "@Url.Action("Create")";
+        window.location.href = url;
+    }
+
+    $(document).ready(function() {
+
+        var articlesData = {};
+
+        function ArticleListViewModel() {
+            var self = this;
+            self.articles = ko.observableArray(articlesData);
+            self.EditArticle = function (article) {
+                var url = "@Url.Action("Edit")";
+                window.location.href = url + "/" + article.Id;
+            };
+            self.DeleteArticle = function (article) {
+                var url = '@Url.Action("Delete")'+'/'+article.Id;
+                $.get(url);
+            };
+        }
+
+        $.getJSON('@Url.Action("GetListJson")', articlesData, function(data) {
+            articlesData = data;
+            ko.applyBindings(new ArticleListViewModel());
+        });
+
+    });
+</script>
+<h2>Список содержимого</h2>
+<button type="button" class="btn btn-success" onclick="CreateNewArticle()">Создать содержимое</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ИД</th>
+            <th>Заголовок</th>
+            <th>User Frendly ссылка</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:articles">
+        <tr>
+            <td data-bind="text:Id"></td>
+            <td data-bind="text:Title"></td>
+            <td data-bind="text:SeoUrl"></td>
+            <td><button type="button" class="btn btn-success" data-bind="click:$parent.EditArticle">Редактировать</button></td>
+            <td><button type="button" class="btn btn-danger" data-bind="click:$parent.DeleteArticle">Удалить</button></td>
+        </tr>
+    </tbody>
+</table>
+

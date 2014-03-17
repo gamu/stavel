@@ -1,0 +1,67 @@
+﻿@model stavel2.Models.NavigationElement
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Text').removeAttr('class');
+        $('#Text').addClass('form-control');
+        $('#Url').removeAttr('class');
+        $('#Url').addClass('form-control');
+        $('#Tag').removeAttr('class');
+        $('#Tag').addClass('form-control');
+    })
+</script>
+
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+<form action="@Url.Action("CreateElement")" method="POST" role="form">
+    <fieldset>
+        <legend>NavigationElement</legend>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(model => model.Text, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Text)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(model => model.Url, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Url)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tag)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(model => model.Tag, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Tag)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Parent)
+        </div>
+        <div class="form-group">
+            @Html.EditorFor(model => model.Parent, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Parent)
+        </div>
+
+        <p>
+            <button type="submit" class="btn btn-success">Сохранить</button>
+        </p>
+    </fieldset>
+</form>
+
+
+<div></div>
+@{ /*Html.ActionLink("Back to List", "Index")*/ }
+

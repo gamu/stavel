@@ -1,0 +1,16 @@
+﻿@using stavel2.Models
+@model  Material
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.Description;
+    ViewBag.Keywords = Model.Keywords;    
+}
+<header>
+    <h2>@Model.Title</h2>
+</header>
+<article>
+    <section>
+        @Html.Raw(Model.Content)
+    </section>
+</article>

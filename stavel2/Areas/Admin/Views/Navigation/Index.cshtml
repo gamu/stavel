@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Список элементов навигации</h2>
+
+<script type="text/javascript"> 
+    $(document).ready(function () {
+        var elementsData = [{Text:""}];
+
+        var NaviElementsViewModel = function() {
+            var self = this;
+            self.elements = ko.observableArray(elementsData);
+            self.createElement = function() {
+                $("#createPartial").dialog();
+            };
+            self.editElement = function(element) {
+                var url = "@Url.Action("Edit","Navigation")" + "/" + element.Id;
+                window.location.href = url;
+            };
+            self.deleteElement = function(element) {
+                alert();
+            };
+        };
+
+        $.getJSON("@Url.Action("GetElements")", elementsData, function (data) {
+            debugger;
+            elementsData = data;
+            ko.applyBindings(new NaviElementsViewModel());
+        });
+    })
+</script>
+
+<button type="button" data-bind="click:createElement" class="btn btn-success">+ Создать элемент</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>ИД</td>
+            <td>Текст</td>
+            <td>Url</td>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach:elements">
+        <tr>
+            <td data-bind="text:Id"></td>
+            <td data-bind="text:Text"></td>
+            <td data-bind="text:Url"></td>
+            <td><button type="button" data-bind="click:$parent.editElement" class="btn btn-success">Редактировать</button></td>
+            <td><button type="button" data-bind="click:$parent.deleteElement" class="btn btn-danger">Удалить</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="createPartial" style="display: none">
+    @Html.Partial("CreateElement")
+</div>

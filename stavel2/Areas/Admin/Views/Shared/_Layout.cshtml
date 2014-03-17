@@ -1,0 +1,33 @@
+﻿@model stavel2.Models.Material
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="Stylesheet" type="text/css" href="~/Content/jHtml/style/jHtmlArea.css" />
+    <link rel="Stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <script type="text/javascript" src="~/Content/jHtml/scripts/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="~/Content/jHtml/scripts/jHtmlArea-0.7.5.js"></script>
+    <script type="text/javascript" src="~/Content/Scripts/knockout-2.1.0.js"></script>
+    <script type="text/javascript" src="~/Content/Scripts/spin.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.7.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.7.2/jquery-ui.js"></script>
+    <title>Редактирование метериала</title>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("List","EditArticle")">Содержимое</a></li>
+                <li><a href="@Url.Action("List","EditArticle")">Навигация</a></li>
+            </ul>
+        </div>
+    </nav>
+    @RenderBody()
+    </body>
+</html>
+

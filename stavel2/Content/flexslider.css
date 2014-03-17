@@ -1,0 +1,144 @@
+ 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.main-slider{}
+.flexslider {
+	padding: 0;
+	}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+.slides li {position:relative;}
+/* FlexSlider Default Theme
+*********************************/
+.main-slider{position:relative;}
+.flexslider {
+	margin: 5px 10px 0; 
+	position: relative;
+	height:368px;
+	}
+.flex-viewport {}
+.loading .flex-viewport {max-height: 300px;}
+.flexslider .slides {zoom: 1;}
+
+/* Direction Nav */
+/*.flex-direction-nav a {
+	width: 30px; 
+	height: 30px; 
+	margin: 0px 0 0; 
+	display: block; 
+	background: url(images/bg_direction_nav.png) no-repeat 0 0; 
+	position: absolute; 
+	top: 50%; 
+	cursor: pointer; 
+	text-indent: -9999px;
+	}*/
+.flex-direction-nav .flex-next {background-position: 100% 0; right: -36px; }
+.flex-direction-nav .flex-prev {left: -36px;}
+.flexslider:hover .flex-next {right: 5px;}
+.flexslider:hover .flex-prev {left: 5px;}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {}
+.flex-direction-nav .disabled {cursor: default;}
+
+.inner{padding-left:71px;}
+.flex-caption{
+	font-family: 'Open Sans', sans-serif;
+	position: absolute;
+	width:465px;
+	left:0;
+	top:88px;
+	z-index:1000;
+	text-transform:uppercase;
+	}
+.flex-caption strong{
+	font-size:65px;
+	line-height:80px;
+	display:block;
+	color:#444446;
+	}
+.flex-caption span{
+	color:#444446;
+	font-size:32px;
+	line-height:40px;
+	display:block;
+	margin:-10px 0 0 0;
+	}
+.col-white{color:#fff !important;}
+.flex-caption span span{color:#444446;}
+/* Control Nav */
+.flex-control-nav {
+	display:inline-block; 
+	position: absolute; 
+	left:72px;
+	bottom: 22%; 
+	text-align: center;
+	}
+.flex-control-nav li {
+	margin: 0 2px; 
+	display: inline-block; 
+	zoom: 1; 
+	*display: inline;
+	}
+.flex-control-paging li a {
+	width: 15px; 
+	height: 15px; 
+	display: block; 
+	background: url(../Content/images/pagination.png) right 0 no-repeat;
+	cursor: pointer; 
+	text-indent: -9999px;
+	}
+.flex-control-paging li a:hover, .flex-control-paging li a.flex-active{ background-position:0 0;}
+
+.flex-control-thumbs {
+	margin: 5px 0 0; 
+	position: static; 
+	overflow: hidden;
+	}
+.flex-control-thumbs li {
+	width: 25%; 
+	float: left; 
+	margin: 0;
+	}
+.flex-control-thumbs img {
+	width: 100%; 
+	display: block; 
+	cursor: pointer;
+	}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .active {opacity: 1; cursor: default;}
+
+@media screen and (max-width: 995px) {
+  .flexslider {
+	  height: auto;
+	  min-height:140px
+	}
+.flex-caption{top:20px;}
+.flex-control-nav {bottom: 12%; left:30px;}
+}
+@media only screen and (max-width: 767px) {
+	.flex-caption{display:none;}
+	.flexslider {
+	  height: auto;
+	  min-height:100px;
+	}
+	}

@@ -27,6 +27,8 @@ namespace stavel2.Areas.Admin.Controllers
         public ActionResult CreateElement()
         {
             var element = ctx.NavigationElements.Create();
+            var tagItems = ctx.NavigationTypes.Select(n => new SelectListItem { Text = n.Value, Value = n.Value }).ToList();
+            ViewBag.Tags = tagItems;
             return View(element);
         }
 

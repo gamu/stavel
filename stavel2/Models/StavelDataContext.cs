@@ -11,5 +11,6 @@ namespace stavel2.Models
         public StavelDataContext() : base("gamu_30") { }        
         public DbSet<Material> Materials { get; set; }
         public DbSet<NavigationElement> NavigationElements { get; set; }
+        public DbSet<NavigationType> NavigationTypes { get; set; }
     }
 }

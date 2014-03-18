@@ -27,12 +27,6 @@ namespace stavel2.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult Edit(Material material)
         {
-            /*var materialEntity = ctx.Materials.Single(n => n.Id == material.Id);
-            materialEntity.Content = material.Content;
-            materialEntity.Description = material.Description;
-            materialEntity.Keywords = material.Keywords;
-            materialEntity.SeoUrl = material.SeoUrl;
-            materialEntity.Title = material.Title;*/
             ctx.Materials.AddOrUpdate(material);
             ctx.SaveChanges();
             return Edit(material.Id);

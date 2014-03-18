@@ -6,7 +6,7 @@
         if (material != null)
         {
             var ctx = new StavelDataContext();
-            var links = ctx.NavigationElements.Where(n => n.Tag == material.SeoUrl);
+            var links = ctx.NavigationElements.Where(n => n.Tag == material.Tag);
             foreach (var navigationElement in links)
             {
                 <li><a href="@Url.Content("~" + navigationElement.Url)">@navigationElement.Text</a></li>

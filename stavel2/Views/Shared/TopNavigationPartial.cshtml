@@ -4,7 +4,7 @@
     <ul class="sf-menu">
         @{
             var ctx = new StavelDataContext();
-            var elements = ctx.NavigationElements;
+            var elements = ctx.NavigationElements.Where(n=>n.Tag=="Top");
             foreach (var element in elements)
             {
                 <li><strong></strong><a href="@Url.Content("~"+element.Url)">@element.Text</a></li>

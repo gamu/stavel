@@ -13,5 +13,7 @@ namespace stavel2.Models
         public string SeoUrl { get; set; }
         public string Keywords { get; set; }
         public string Description { get; set; }
+
+        public string Tag { get; set; }
     }
 }

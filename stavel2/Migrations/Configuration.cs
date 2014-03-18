@@ -17,24 +17,17 @@ namespace stavel2.Migrations
 
         protected override void Seed(stavel2.Models.StavelDataContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
             context.NavigationElements.AddOrUpdate(n=>n.Text,
-                new NavigationElement{Text="Главная"},
-                new NavigationElement{Text="Электропроект"},
-                new NavigationElement { Text = "Электромонтаж" },
-                new NavigationElement{Text="Вакансии"},
-                new NavigationElement{Text="Контакты"});
+                new NavigationElement{Text="Главная",Tag="Top"},
+                new NavigationElement { Text = "Проект электрики", Tag = "Top", Url = "/project-electriki" },
+                new NavigationElement { Text = "Электромонтаж", Tag = "Top" },
+                new NavigationElement { Text = "Вакансии", Tag = "Top" },
+                new NavigationElement { Text = "Контакты", Tag = "Top" });
+
+            context.NavigationTypes.AddOrUpdate(n=>n.Value,
+                new NavigationType{Value = "Top"},
+                new NavigationType { Value = "project-electriki" });
+
             context.SaveChanges();
         }
     }

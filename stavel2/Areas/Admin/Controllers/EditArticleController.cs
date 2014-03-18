@@ -20,14 +20,15 @@ namespace stavel2.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var article = ctx.Materials.FirstOrDefault(n => n.Id == id);
+            var material = ctx.Materials.FirstOrDefault(n => n.Id == id);
+            var article = new MaterialEditViewModel(material);
             return View(article);
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(Material material)
+        public ActionResult Edit(MaterialEditViewModel material)
         {
-            ctx.Materials.AddOrUpdate(material);
+            ctx.Materials.AddOrUpdate((Material)material);
             ctx.SaveChanges();
             return Edit(material.Id);
         }
@@ -35,13 +36,14 @@ namespace stavel2.Areas.Admin.Controllers
         public ActionResult Create()
         {
             var materialEntry = ctx.Materials.Create();
-            return View(materialEntry);
+            var article = new MaterialEditViewModel(materialEntry);
+            return View(article);
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(Material material)
+        public ActionResult Create(MaterialEditViewModel material)
         {
-            ctx.Materials.AddOrUpdate(material);
+            ctx.Materials.AddOrUpdate((Material)material);
             ctx.SaveChanges();
             return Create();
         }

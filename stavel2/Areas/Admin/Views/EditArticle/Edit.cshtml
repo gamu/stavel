@@ -1,4 +1,4 @@
-﻿@model stavel2.Models.Material
+﻿@model stavel2.Areas.Admin.Models.MaterialEditViewModel
 @{
     Layout = "../Shared/_Layout.cshtml";
 }
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(n => n.Tag)
-            @Html.DropDownListFor(n => n.Tag,null, new { @class = "form-control" })
+            @Html.DropDownListFor(n => n.Tag,Model.Categories(), new { @class = "form-control" })
         </div>
         <div class="form-group">
             @Html.TextAreaFor(n => n.Content, new { style = "width: 100%;", rows = 20 })

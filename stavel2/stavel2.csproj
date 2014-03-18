@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\Controllers\EditArticleController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\NavigationController.cs" />
+    <Compile Include="Areas\Admin\Models\MaterialEditViewModel.cs" />
     <Compile Include="Areas\Admin\Models\MaterialsListViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

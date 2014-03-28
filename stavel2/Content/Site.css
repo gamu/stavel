@@ -671,6 +671,7 @@ tr.pager td {
 
     .news_header {
         background: url("../Content/images/news.png") no-repeat;
+        font-size: x-large;
     }
 
     /* page content */

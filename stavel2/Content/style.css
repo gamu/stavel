@@ -437,6 +437,8 @@ h4{
     height: 39px;
     padding-left: 40px;
     padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: x-large;
     }
 /*==================aside====================*/
 aside{
@@ -491,8 +493,10 @@ body{ min-width:995px}
 	margin-bottom:10px;
 	}
 .list-2 li{
-	font-size:16px;
-	line-height:22px;
+	font-size:14px;
+	line-height:16px;
+    margin-top: 10px;
+    display: block;
 	}
 }
 

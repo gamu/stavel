@@ -1,16 +1,21 @@
 ﻿@using stavel2.Models
-
-<ul>
-    @{
-        Material material = ViewBag.CurrentArticle;
-        if (material != null)
-        {
-            var ctx = new StavelDataContext();
-            var links = ctx.NavigationElements.Where(n => n.Tag == material.Tag);
-            foreach (var navigationElement in links)
-            {
-                <li><a href="@Url.Content("~" + navigationElement.Url)">@navigationElement.Text</a></li>
+<div style="margin-top:40px;">
+    <strong class="news_header">Связные статьи</strong><br/>
+    <div style="margin-top:20px;">
+        <ul class="list-2">
+            @{
+                Material material = ViewBag.CurrentArticle;
+                if (material != null)
+                {
+                    var ctx = new StavelDataContext();
+                    var links = ctx.Materials.Where(n => n.Tag == material.Tag);
+                    foreach (var navigationElement in links)
+                    {
+                        <li><a style="font-size: small;" href="@Url.Content("~/" + navigationElement.SeoUrl)">@navigationElement.Title</a></li>
+                    }
+                }
             }
-        }
-    }
-</ul>
+        </ul>
+    </div>
+</div>
+
